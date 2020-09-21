@@ -1,1 +1,1 @@
-﻿<%@ Application Codebehind="Global.asax.cs" Inherits="CasaVA.Global" Language="C#" %>
+﻿<%@ Application Codebehind="Global.asax.cs" Inherits="TemplateBootstrap.Global" Language="C#" %>

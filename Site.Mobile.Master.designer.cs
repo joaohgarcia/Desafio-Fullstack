@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CasaVA {
+namespace TemplateBootstrap {
     
     
     public partial class Site_Mobile {

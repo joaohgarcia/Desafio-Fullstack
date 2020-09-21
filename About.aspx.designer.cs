@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CasaVA
+namespace TemplateBootstrap
 {
 
 
