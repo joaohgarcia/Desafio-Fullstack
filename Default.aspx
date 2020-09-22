@@ -1,42 +1,39 @@
-﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="TemplateBootstrap._Default" %>
+﻿<%@ Page Title="Sistema de Questionários" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="TemplateBootstrap._Default" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-
-    <div class="jumbotron">
-        <h1>ASP.NET</h1>
-        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS, and JavaScript.</p>
-        <p><a href="http://www.asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-    </div>
-
-    <div class="row" style="width:100%">
-        <div class="col-md-4">
-            <h2>Getting started</h2>
-            <p>
-                ASP.NET Web Forms lets you build dynamic websites using a familiar drag-and-drop, event-driven model.
-            A design surface and hundreds of controls and components let you rapidly build sophisticated, powerful UI-driven sites with data access.
-            </p>
-            <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301948">Learn more &raquo;</a>
-            </p>
+    <div class="row">
+        <div class="grid" style="margin-right:10%;">
+            <h3>Questionários</h3>
         </div>
-        <div class="col-md-4">
-            <h2>Get more libraries</h2>
-            <p>
-                NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.
-            </p>
-            <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301949">Learn more &raquo;</a>
-            </p>
-        </div>
-        <div class="col-md-4">
-            <h2>Web Hosting</h2>
-            <p>
-                You can easily find a web hosting company that offers the right mix of features and price for your applications.
-            </p>
-            <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301950">Learn more &raquo;</a>
-            </p>
+        <div class="grid" style="margin-right:10%;">
+            <asp:Button ID="btnNovoQuestionario" runat="server" Text="Novo Questionário" OnClick="btnNovoQuestionario_Click" CssClass="btn btn-primary" />
         </div>
     </div>
+    <br />
+    <br />
+    <asp:Label ID="lblInicio" runat="server" Text="" Visible="false"></asp:Label>
+    <asp:GridView ID="grvListagem" runat="server" AutoGenerateColumns="False" DataKeyNames="Id" DataSourceID="sdsListagemQuestionarios" OnRowCommand="grvListagem_RowCommand" CssClass="myGridClass" AlternatingRowStyle-CssClass="myAltRowClass" PagerStyle-CssClass="myPagerClass ">
+        <Columns>
+            <asp:TemplateField HeaderText="Id" SortExpression="Id" Visible="False">
+                <EditItemTemplate>
+                    <asp:Label runat="server" Text='<%# Eval("Id") %>' ID="lblID"></asp:Label>
+                </EditItemTemplate>
+                <ItemTemplate>
+                    <asp:Label runat="server" Text='<%# Bind("Id") %>' ID="lblID"></asp:Label>
+                </ItemTemplate>
+            </asp:TemplateField>
+            <asp:BoundField DataField="titulo" HeaderText="Título" SortExpression="titulo"></asp:BoundField>
+            <asp:BoundField DataField="usuario" HeaderText="Usuário" SortExpression="usuario"></asp:BoundField>
+            <asp:BoundField DataField="data_de_cadastro" HeaderText="Data de Cadastro" SortExpression="data_de_cadastro"></asp:BoundField>
+
+            <asp:TemplateField HeaderText="Visualizar">
+                <ItemTemplate>
+                    <asp:Button runat="server" Text="Visualizar" CommandName="visualizar" CommandArgument="<%# Container.DataItemIndex %>" CssClass="btn btn-info" />
+                </ItemTemplate>
+            </asp:TemplateField>
+        </Columns>
+    </asp:GridView>
+
+    <asp:SqlDataSource runat="server" ID="sdsListagemQuestionarios" ConnectionString='<%$ ConnectionStrings:ConnectionString %>' SelectCommand="SELECT * FROM [Questionario]"></asp:SqlDataSource>
 
 </asp:Content>
