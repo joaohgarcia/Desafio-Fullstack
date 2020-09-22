@@ -27,7 +27,7 @@
         <asp:Label ID="lblRespostas" Text="Respostas" runat="server" />
         <br />
         <br />
-        <asp:GridView ID="grvRespostas" runat="server" DataSourceID="sdsRespostas" AutoGenerateColumns="False" DataKeyNames="Id" AlternatingRowStyle-CssClass="myAltRowClass" CssClass="myGridClass" PagerStyle-CssClass="myPagerClass ">
+        <asp:GridView ID="grvRespostas" runat="server" DataSourceID="sdsRespostas" AutoGenerateColumns="False" DataKeyNames="Id" AlternatingRowStyle-CssClass="myAltRowClass" CssClass="myGridClass" PagerStyle-CssClass="myPagerClass" GridLines="None">
             <Columns>
                 <asp:BoundField DataField="Id" HeaderText="Id" ReadOnly="True" InsertVisible="False" SortExpression="Id" Visible="False"></asp:BoundField>
                 <asp:BoundField DataField="resposta" HeaderText="Resposta" SortExpression="resposta"></asp:BoundField>

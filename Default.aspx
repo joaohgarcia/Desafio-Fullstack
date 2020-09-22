@@ -3,7 +3,7 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="row">
         <div class="grid" style="margin-right:10%;">
-            <h3>Questionários</h3>
+            <h3 style="padding-left:15px;">Questionários</h3>
         </div>
         <div class="grid" style="margin-right:10%;">
             <asp:Button ID="btnNovoQuestionario" runat="server" Text="Novo Questionário" OnClick="btnNovoQuestionario_Click" CssClass="btn btn-primary" />
@@ -12,7 +12,7 @@
     <br />
     <br />
     <asp:Label ID="lblInicio" runat="server" Text="" Visible="false"></asp:Label>
-    <asp:GridView ID="grvListagem" runat="server" AutoGenerateColumns="False" DataKeyNames="Id" DataSourceID="sdsListagemQuestionarios" OnRowCommand="grvListagem_RowCommand" CssClass="myGridClass" AlternatingRowStyle-CssClass="myAltRowClass" PagerStyle-CssClass="myPagerClass ">
+    <asp:GridView ID="grvListagem" runat="server" AutoGenerateColumns="False" DataKeyNames="Id" DataSourceID="sdsListagemQuestionarios" OnRowCommand="grvListagem_RowCommand" CssClass="myGridClass" AlternatingRowStyle-CssClass="myAltRowClass" PagerStyle-CssClass="myPagerClass" GridLines="None">
         <Columns>
             <asp:TemplateField HeaderText="Id" SortExpression="Id" Visible="False">
                 <EditItemTemplate>
